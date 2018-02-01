@@ -1,0 +1,27 @@
+#!/bin/sh
+path_null="nohup.out"
+script_name=$1
+log_file=${3:-$path_null}
+java_env="java -jar"
+params="--server.port=9000"
+if [ $# -lt 1 ]; then
+	echo "[2001]No arguments supplied"
+	exit
+fi
+
+if [ ! -f $script_name ]; then
+        echo "[2002]File $script_name not found!";
+        exit
+fi
+#echo `ps aux |grep $script_name | grep -v grep`
+
+#PID=`ps aux |grep $script_name | grep -v grep | awk '{print $2}'`
+num_agent2=`ps ax | grep $0 | grep $script_name | grep -v grep| wc -l`
+if [ $num_agent2 -eq 2 ]; then
+     echo "[OK]		Start $script_name successed :)"
+else
+     echo "[FAILED]		Start $script_name failed :("
+     exit
+fi
+
+$java_env $script_name $params $option_data >> $log_file 2>&1
