@@ -1,94 +1,55 @@
-# MoMo - OAuth2
-
-Cổng liên kết tài khoản MoMo với Đối tác (3rdParty) theo mô hình OAuth2
-
-## Getting Started
-
-`I dont know`
-
-### Prerequisites
-
-What things you need to install the software and how to install them
-1. Java 8, JDK (Ask Google God to install)
-2. Maven install
-3. Spring Boot CLI (Optional)
-4. Some dependencies of MoMo project (See as pom.xml)
-
-
+# Spring Boot Boilerplate
+## Technology
+1. Spring Boot v1.5.9
+2. Spring Security
+3. JPA - Hikari 
+4. Thymeleaf Template
+## Struct
+1. Project
 ```
-No more things in here
+| -- config
+| -- build
+| -- logs
+| -- target
+| -- src
+      | - config
+      | - constant
+      | - controller
+      | - api 
+      | - dao 
+           | - entity
+           | - repository
+      
+      | - security
+      | - service
+      | - utils
 ```
-### Installing
+### Description
+1. config: Contains code config DB, Bean, Load Config file
+2. constant: Some constants: Paramters, Key
+3. logs: path logs file 
+4. target: contains jar after built
+5. build : contains bash file to run project on UAT or Pro env. Write `worker` and `control.sh`
+6. src: Of course: It contains your source codes : =.=
 
-```
-                        Google
+# How to run
+## On local
+1. Import project to your favorite idea like IntelJ, Eclipse, NetBean ....
+2. Wait to import dependencies
+3. Edit config file like DB in ./config
+4. Click play button on toolbar || Run cmd `spring-boot:run`
+5. Enjoy
 
-```
+## UAT | Pro
+I think it's good way to deloy and run a project on server
+1. Edit config in ./config folder
+2. Edit `worker` and `control.sh` files in `build` folder
+- `worker` : Edit file name `.jar` 
+- `control.sh` : Pass your params into `params` like path logs, path configs, port v,v..
+3. Install jar file: `mvn clean install`
+4. Copy file jar and build, config to server
+5. Run cmd `control.sh start/stop/restart` | Pick one command : start/stop/restart
 
-## Running the tests
+Sometime you have been have bugs.
 
-1. Import project to your fav idea like IntelJ
-2. Waiting for download dependencies.
-3. Some dependencies you must download from git of MoMo to using this project
-4. Continues wait to import dependencies xD.
-5. Changes your config (./config/* and appplication.properties)
-5. Click PLAY button on taskbar IDEA to run project (if disabled, plz run java project with  main file)
-6. Enjoy your life
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-
-```
-I dont know what write here
-```
-
-## Deployment
-
-1. Only little changes test env
-2. Prepare all dependency.
-3. Changes config
-4. Run command `mvn clean install`
-5. Copy ./target/*.jar to location on project
-6. Run command `java -jar project-name.jar <some options here>`
-7. If you dont want use above way, you can use command bash shell in : `./build/control.sh start/stop/restart`
-8. Enjoy your life
-
-
-## Built With
-```
-* [Spring Boot]() - The web framework used
-* [Oracle]() - Database very strong
-* [Maven](https://maven.apache.org/) - Dependency Management
-```
-## Contributing
-
-```
-I also know who will contribu this project
-If have, plz write your name below
-```
-
-## Versioning
-
-```
-Version 1.0
-``` 
-
-## Authors
-
-* **Hải Nguyễn** - *Initial work*
-
-
-## License
-(c) MoMo 
-
-
-## Acknowledgments
 
